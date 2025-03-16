@@ -27,7 +27,7 @@ Spawn Selector for QB-Core Framework :eagle:
 - [qb-garages](https://github.com/qbcore-framework/qb-garages) - For house garages
 
 ## Screenshots
-![Spawn selector](https://i.imgur.com/nz0mPGe.png)
+![Spawn selector]([https://i.imgur.com/nz0mPGe.png](https://r2.fivemanage.com/vMOkCnozwKRq1GH8rhuLB/image/Screenshot2025-03-16213421.png)
 
 ## Features
 - Ability to select spawn after selecting the character
@@ -51,8 +51,8 @@ QB.Spawns = {
         coords = vector4(1.1, -1.1, 1.1, 180.0), -- Coords player will be spawned
         location = "spawn1", -- Needs to be unique
         label = "Spawn 1 Name", -- This is the label which will show up in selection menu.
-        description = "lorem ipsum dolor sit amet",
-        image = 'images/default.png',
+        description = "lorem ipsum dolor sit amet", -- This is the description which will show up in selection menu.
+        image = 'images/default.png', This is the image which will show up in selection menu.
     },
     ["spawn2"] = { -- Needs to be unique
         coords = vector4(1.1, -1.1, 1.1, 180.0), -- Coords player will be spawned
