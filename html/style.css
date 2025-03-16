@@ -2,47 +2,13 @@
 
 :root {
     /* Dark Theme Variables */
-    --md-dark-primary: #f44336;
-    --md-dark-on-primary: #ffffff;
-    --md-dark-primary-container: #ffdad6;
-    --md-dark-on-primary-container: #410002;
-    --md-dark-secondary: #d32f2f;
-    --md-dark-on-secondary: #ffffff;
-    --md-dark-secondary-container: #ffdad5;
-    --md-dark-on-secondary-container: #410001;
-    --md-dark-tertiary: #ff8a65;
-    --md-dark-on-tertiary: #ffffff;
-    --md-dark-tertiary-container: #ffdacc;
-    --md-dark-on-tertiary-container: #410002;
-    --md-dark-surface: #1c1b1f;
+    --md-primary: #f44336;
+    --md-dark-primary-container: #f44336;
+    --md-dark-on-secondary: #c8c4ca;
+    --md-on-surface: #1c1b1f;
+    --md-surface: #ffffff;
+    --md-surface-container: #454446; 
     --md-dark-on-surface: #e6e1e5;
-    --md-dark-surface-container-lowest: #0f0d13;
-    --md-dark-surface-container-low: #1d1b20;
-    --md-dark-surface-container: #211f26;
-    --md-dark-surface-container-high: #2b2930;
-    --md-dark-surface-container-highest: #36343b;
-    --md-dark-error: #b3261e;
-    --md-dark-on-error: #ffffff;
-    --md-dark-error-container: #93000a;
-    --md-dark-on-error-container: #ffdad5;
-    --md-dark-outline: #79747e;
-    --md-dark-outline-variant: #49454f;
-    --md-dark-inverse-surface: #e6e1e5;
-    --md-dark-inverse-on-surface: #1c1b1f;
-    --md-dark-scrim: rgba(0, 0, 0, 0.6);
-    --md-dark-shadow: rgba(0, 0, 0, 0.15);
-    --md-dark-success: #9bd880;
-    --md-dark-on-success: #193800;
-    --md-dark-success-container: #275000;
-    --md-dark-on-success-container: #b6f397;
-    --md-dark-warning: #ffba47;
-    --md-dark-on-warning: #422b00;
-    --md-dark-warning-container: #5f3f00;
-    --md-dark-on-warning-container: #ffddb0;
-    --md-dark-info: #b3c5ff;
-    --md-dark-on-info: #002a77;
-    --md-dark-info-container: #003ea7;
-    --md-dark-on-info-container: #dae1ff;
 
     /* Shapes */
     --md-radius-small: 8px;
@@ -66,7 +32,7 @@
     --md-typescale-headline-small-size: 24px;
     --md-typescale-title-large-size: 22px;
     --md-typescale-title-medium-size: 16px;
-    --md-typescale-title-small-size: 14px;
+    --md-typescale-title-small-size: 13px;
     --md-typescale-body-large-size: 16px;
     --md-typescale-body-medium-size: 14px;
     --md-typescale-body-small-size: 12px;
@@ -92,22 +58,78 @@
     min-width: 30vh;
     width: fit-content;
     max-width: 35vh;
-    top: 10vh;
+    top: 30vh;
     left: 10vh;
-    background-color: var(--md-dark-surface-container);
-    box-shadow: var(--md-elevation-2);
-    padding: 30px;
     cursor: default;
+    transition: 300ms;
+}
+
+.spawn-btns {
+    text-transform: uppercase;
+    position: absolute;
+    min-width: 35vh;
+    width: fit-content;
+    max-width: 35vh; 
+    top: 19.2vh;
+    left: 10vh;
+    padding: 0px 8px 0px 8px;
+    transition: 300ms;
+}
+
+.scrollable {
+    max-height: 60%;
+    overflow-y: scroll;
+}
+
+.last-location {
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+    background-color: var(--md-surface-container) !important;
+}
+
+.last-location:hover {
+    background-color: var(--md-dark-primary-container) !important;
     transition: 300ms;
 }
 
 .location {
     width: 100%;
-    margin-bottom: 15px;
     transition: 200ms;
     cursor: pointer;
+    background-color: var(--md-surface-container) !important;
 }
 
+.location-box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    background-color: var(--md-on-surface);
+    width: fit-content;
+}
+
+.location-image {
+    width: 100%;
+    max-height: 10000px;
+    border-radius: 8px;
+}
+
+.location-header h1 {
+    padding: 3px;
+    margin: 8px;
+    color: var(--md-surface);
+}
+
+.location-header p {
+    padding: 3px;
+    margin: 8px;
+    line-height: 18px;
+    font-size: small;
+    color: var(--md-dark-on-secondary);
+}
+  
 .v-btn.location:hover {
     background-color: var(--md-dark-primary-container) !important;
     transition: 300ms;
@@ -116,47 +138,77 @@
 .v-btn.location .v-btn__content {
     font-size: var(--md-typescale-label-large-size) !important;
     font-weight: var(--font-weight-medium) !important;
-    color: var(--md-dark-on-surface) !important;
+    color: var(--md-surface) !important;
+    letter-spacing: 3;
+}
+
+.v-btn.last-location {
+    font-size: var(--md-typescale-label-large-size) !important;
+    font-weight: var(--font-weight-medium) !important;
+    color: var(--md-surface) !important;
     letter-spacing: 3;
 }
 
 .v-btn.location.selected {
-    background-color: var(--md-dark-primary) !important;
+    background-color: var(--md-primary) !important;
+}
+
+.v-btn.last-location.selected {
+    background-color: var(--md-primary) !important;
 }
 
 .v-btn.location.selected .v-btn__content {
-    color: var(--md-dark-on-primary) !important;
+    color: var(--md-surface) !important;
 }
 
 .submit-spawn {
-    background-color: var(--md-dark-success) !important;
+    background-color: var(--md-surface-container) !important;
     width: 100%;
     margin-top: 1.5vh;
     transition: 0.2s;
     cursor: pointer;
 }
 
+.submit-spawn:hover {
+    background-color: var(--md-primary) !important;
+}
+
 .v-btn.submit-spawn .v-btn__content {
     font-size: var(--md-typescale-label-large-size) !important;
     font-weight: var(--font-weight-medium) !important;
-    color: var(--md-dark-on-success) !important;
+    color: var(--md-surface) !important;
     letter-spacing: 3;
 }
 
 .spawn_locations-header {
+    position: absolute;
+    text-transform: uppercase;
     width: 100%;
     transition: 0.2s;
     margin-bottom: 17.5px;
+    top: 14vh;
+    left: 10vh;
+    padding: 10px;
+    transition: 300ms;
 }
 
-.spawn_locations-header > p {
+.spawn_locations-header > span {
     font-family: var(--font-primary);
     letter-spacing: 1px;
+    position: relative;
+    color: var(--md-dark-on-secondary);
+    padding-bottom: 20px;
+    font-size: var(--md-typescale-title-small-size);
+}
+
+.spawn_locations-header > h1 {
+    font-family: var(--font-primary);
+    letter-spacing: 6px;
     font-weight: var(--font-weight-bold);
     position: relative;
-    color: var(--md-dark-on-surface);
-    text-align: center;
-    font-size: var(--md-typescale-title-medium-size);
+    padding-bottom: 10px;
+    color: var(--md-surface);
+    font-size: var(--md-typescale-display-small-size);
 }
 
 .slide-top-fade-enter-active {
@@ -167,6 +219,15 @@
 }
 .slide-top-fade-enter-from,
 .slide-top-fade-leave-to {
-    transform: translateY(-10%);
     opacity: 0 !important;
+}
+
+
+@media screen and (max-width: 1920px) {
+    .spawn_locations-header {
+        top: 11vh;
+    }
+    .spawn-btns {
+        top: 17.8vh;
+    }
 }
