@@ -15,22 +15,25 @@
         <v-app data-app>
             <div id="app">
                 <div class="container">
-                    <div class="noselect">
-                        <div class="spawn-locations" :class="{'slide-top-fade-leave-active': show == false, 'slide-top-fade-leave-to': show == false}">
-                            <div class="spawn_locations-header">
-                                <p>
-                                    <span id="null">{{translate('where_would_you_like_to_start')}}</span>
-                                </p>
-                            </div>
-
-                            <v-btn elevation="0" color="#00000000" v-if="newChar !== true" class="location" x-large v-ripple :class="{'selected': 'current' == selectedValue.type && 'current' == selectedValue.name}" @click="click_location('current', 'current')"> {{translate('last_location')}} </v-btn>
-
-                            <div v-for="(locations, locationGroupIdx) in positions">
-                                <v-btn v-for="(location, locationIdx) in locations" :key="locationGroupIdx + '-' + locationIdx" elevation="0" color="#00000000" :class="{'selected': locationGroupIdx == selectedValue.type && ((locationGroupIdx !== 'house' && locationIdx == selectedValue.name) || (locationGroupIdx == 'house' && location.house == selectedValue.name))}" class="location" x-large v-ripple @click="click_location(locationGroupIdx, locationGroupIdx == 'house' ? location.house : locationIdx)"> {{ location.label }} </v-btn>
-                            </div>
-
-                            <v-btn @click="submit_spawn" v-ripple x-large class="submit-spawn" v-if="selectedValue.type !== '' && selectedValue.name !== ''"> {{translate('confirm')}} </v-btn>
+                    <div class="noselect" :class="{'slide-top-fade-leave-active': show == false, 'slide-top-fade-leave-to': show == false}">
+                        <div class="spawn_locations-header">
+                            <h1>{{translate('spawn_header')}}</h1>
+                            <span id="null">{{translate('where_would_you_like_to_start')}}</span>
                         </div>
+                        <div class="spawn-btns">
+                            <v-btn @click="submit_spawn" v-ripple x-large class="submit-spawn" :disabled="selectedValue.type === '' || selectedValue.name === ''">{{translate('confirm')}}</v-btn>
+                            <v-btn color="#00000000" v-if="newChar !== true" class="last-location" x-large v-ripple :class="{'selected': 'current' == selectedValue.type && 'current' == selectedValue.name}" @click="click_location('current', 'current')">{{translate('last_location')}}</v-btn>
+                        </div>
+                        <div class="spawn-locations scrollable">
+                            <div v-for="(locations, locationGroupIdx) in positions" class="location-group">
+                                <div  v-for="(location, locationIdx) in locations" :key="locationGroupIdx + '-' + locationIdx" class="location-box">
+                                    <img :src="location.image || defaultImage" alt="Location Image" class="location-image" />
+                                    <div class="location-header"><h1>{{ location.label }}</h1><p>{{ location.description || translate('defaultDescription') }}</p></div>
+                                    <v-btn color="#00000000" :class="{'selected': locationGroupIdx == selectedValue.type && ((locationGroupIdx !== 'house' && locationIdx == selectedValue.name) || (locationGroupIdx == 'house' && location.house == selectedValue.name))}" class="location" x-large v-ripple @click="click_location(locationGroupIdx, locationGroupIdx == 'house' ? location.house : locationIdx)">{{translate('select')}}</v-btn>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -55,6 +58,7 @@
                     newChar: false,
                     show: false,
                     translations: {},
+                    defaultImage: 'images/default.png',
                 },
 
                 methods: {
