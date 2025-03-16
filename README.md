@@ -51,11 +51,15 @@ QB.Spawns = {
         coords = vector4(1.1, -1.1, 1.1, 180.0), -- Coords player will be spawned
         location = "spawn1", -- Needs to be unique
         label = "Spawn 1 Name", -- This is the label which will show up in selection menu.
+        description = "lorem ipsum dolor sit amet",
+        image = 'images/default.png',
     },
     ["spawn2"] = { -- Needs to be unique
         coords = vector4(1.1, -1.1, 1.1, 180.0), -- Coords player will be spawned
         location = "spawn2", -- Needs to be unique
         label = "Spawn 2 Name", -- This is the label which will show up in selection menu.
+        description = "lorem ipsum dolor sit amet", -- This is the description which will show up in selection menu.
+        image = 'images/default.png', This is the image which will show up in selection menu.
     },
 }
 ```
