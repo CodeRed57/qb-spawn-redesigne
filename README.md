@@ -28,7 +28,7 @@ Spawn Selector for QB-Core Framework :eagle:
 
 ## Screenshots
 ![Spawn selector](https://r2.fivemanage.com/vMOkCnozwKRq1GH8rhuLB/image/Screenshot2025-03-16213421.png)
-![Spawn selector2](https://r2.fivemanage.com/vMOkCnozwKRq1GH8rhuLB/image/Screenshot2025-03-16213352.png)
+![Spawn selector 2](https://r2.fivemanage.com/vMOkCnozwKRq1GH8rhuLB/image/Screenshot2025-03-16213352.png)
 
 ## Features
 - Ability to select spawn after selecting the character
